@@ -1,8 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const Main = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  // Function to handle nav link click
+  const handleNavClick = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div id="home">
@@ -63,36 +86,42 @@ const Main = () => {
 
         {/* Mobile Dropdown */}
         <div
+          ref={menuRef}
           className={`md:hidden bg-pink-50 overflow-hidden transition-all duration-500 ease-in-out ${
             isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="flex flex-col px-6 py-4 space-y-4">
             <a
+              onClick={handleNavClick}
               href="#home"
               className="text-gray-700 hover:text-pink-600 transition"
             >
               Home
             </a>
             <a
+              onClick={handleNavClick}
               href="#services"
               className="text-gray-700 hover:text-pink-600 transition"
             >
               Services
             </a>
             <a
-              href="#shop"
+              onClick={handleNavClick}
+              href="#gallery"
               className="text-gray-700 hover:text-pink-600 transition"
             >
               Gallery
             </a>
             <a
+              onClick={handleNavClick}
               href="#about"
               className="text-gray-700 hover:text-pink-600 transition"
             >
               About
             </a>
             <a
+              onClick={handleNavClick}
               href="#contact"
               className="text-gray-700 hover:text-pink-600 transition"
             >

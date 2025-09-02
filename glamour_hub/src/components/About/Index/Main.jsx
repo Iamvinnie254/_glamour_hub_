@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import About from "../../../assets/About/about.png";
+import { FaCheckCircle, FaInstagram } from "react-icons/fa";
 
 const Main = () => {
   return (
@@ -17,12 +19,18 @@ const Main = () => {
             luxury treatments. Our team of professionals is dedicated to giving
             you the best salon experience.
           </p>
+          <div className="mt-6 space-y-3 text-gray-600 font-serif">
+            <p className="flex gap-2 items-center"><FaCheckCircle size={20} /> Enjoy exclusive deals & offers</p>
+            <p className="flex gap-2 items-center"><FaCheckCircle size={20} /> Meet our experienced experts to turn you into a beauty</p>
+            <p className="flex gap-2 items-center"><FaCheckCircle size={20} /> Experience one of a kind ambience and world-class customer service</p>
+            
+          </div>
         </motion.div>
 
         <motion.img
-          src="https://via.placeholder.com/500x400"
+          src={About}
           alt="About"
-          className="rounded-lg shadow-lg"
+          className="rounded-lg shadow-lg w-[300px] md:w-[400px] mx-auto"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}

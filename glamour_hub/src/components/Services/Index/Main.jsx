@@ -1,25 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Facial from "../../../assets/Services/facial.png";
+import Makeup from "../../../assets/Services/makeup.png";
+import Hair from "../../../assets/Services/hair_styling.png";
+import Spa from "../../../assets/Services/spa.png";
 
 const services = [
   {
     title: "Facial",
-    img: "https://via.placeholder.com/200",
+    img: Facial,
     desc: "Glow & refresh",
   },
   {
     title: "Makeup",
-    img: "https://via.placeholder.com/200",
+    img: Makeup,
     desc: "Special occasions",
   },
   {
     title: "Hair Styling",
-    img: "https://via.placeholder.com/200",
+    img:Hair,
     desc: "Trendy styles",
   },
   {
     title: "Spa Therapy",
-    img: "https://via.placeholder.com/200",
+    img: Spa,
     desc: "Relax & unwind",
   },
 ];
@@ -38,7 +42,7 @@ const Main = () => {
           Our Services
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((s, i) => (
             <motion.div
               key={i}

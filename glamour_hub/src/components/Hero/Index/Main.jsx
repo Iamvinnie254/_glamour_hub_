@@ -1,9 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Hero from "../../../assets/Hero/Hero.png";
 
 const Main = () => {
   return (
-    <section className="relative bg-pink-100 h-[80vh] flex items-center" id="home">
+    <section
+      className="relative bg-pink-100 h-[80vh] flex items-center py-100 md:py-70"
+      id="home"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center">
         {/* Text */}
         <motion.div
@@ -37,9 +41,9 @@ const Main = () => {
           viewport={{ once: true }}
         >
           <img
-            src="https://via.placeholder.com/500x600"
+            src={Hero}
             alt="Beauty"
-            className="rounded-lg shadow-lg"
+            className="rounded-lg shadow-lg w-[250px] md:w-[350px]"
           />
         </motion.div>
       </div>
