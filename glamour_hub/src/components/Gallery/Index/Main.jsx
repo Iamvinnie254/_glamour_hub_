@@ -1,29 +1,37 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const images = [
-  "https://via.placeholder.com/300x300",
-  "https://via.placeholder.com/300x300",
-  "https://via.placeholder.com/300x300",
-  "https://via.placeholder.com/300x300",
+  "/gallery1.jpg",
+  "/gallery2.jpg",
+  "/gallery3.jpg",
+  "/gallery4.jpg",
 ];
 
 const Main = () => {
   return (
-    <section className="py-16 bg-white" id="gallery">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Gallery</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <motion.section
+      className="py-20 bg-white"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
+      <div className="max-w-6xl mx-auto px-6" id="gallery">
+        <h2 className="text-4xl font-bold text-center mb-12">Our Gallery</h2>
+        <div className="grid md:grid-cols-4 gap-6">
           {images.map((img, i) => (
-            <img
+            <motion.img
               key={i}
               src={img}
-              alt="Salon work"
-              className="rounded-lg shadow"
+              alt={`Gallery ${i + 1}`}
+              className="rounded-lg shadow-lg hover:scale-105 transition transform"
+              whileHover={{ scale: 1.1 }}
             />
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
